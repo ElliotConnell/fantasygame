@@ -45,6 +45,14 @@ def heal(noun):
 				msg = "Dwarf has been revived!"
 			else:
 				msg = "You healed the {}".format(thing.class_name)
+		elif type(thing) == Hobbit:
+			thing.health += 1
+			if thing.health >= 3:
+				msg = "Hobbit is at full health"
+			elif thing.health == 1:
+				msg = "Hobbit has been revived!"
+			else:
+				msg = "You healed the {}".format(thing.class_name)
 		else:
 			msg = "There is no {} here.".format(noun)
 		return msg
@@ -59,3 +67,5 @@ from class_orc import Orc
 from class_human import Human
 
 from class_dwarf import Dwarf
+
+from class_hobbit import Hobbit

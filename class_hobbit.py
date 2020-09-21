@@ -1,24 +1,22 @@
-# class Elf
+# class Hobbit
 
 from class_gameobject import GameObject
 
-class Elf(GameObject):
+class Hobbit(GameObject):
 	def __init__(self, name):
-		self.class_name = "elf"
-		self.health = 5
-		self._desc = "A sensitive soul"
+		self.class_name = "hobbit"
+		self.health = 3
+		self._desc = "A friendly companion"
 		super().__init__(name)
 
 	@property
 	def desc(self):
-		if self.health >=4:
+		if self.health >=3:
 			return self._desc
-		elif self.health == 3:
-			health_line = "It has a wound on its knee."
 		elif self.health == 2:
-			health_line = "Its ear has been severed!"
+			health_line = "It has a cut on its face.."
 		elif self.health == 1:
-			health_line = "Its left arm has been cut off!"
+			health_line = "It is seriously injured"
 		elif self.health <= 0:
 			health_line = "It is dead"
 		return self._desc + "\n" + health_line
@@ -26,4 +24,3 @@ class Elf(GameObject):
 	@desc.setter
 	def desc(self, value):
 		self._desc = value
-

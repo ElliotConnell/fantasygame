@@ -37,6 +37,12 @@ def hit(noun):
 				msg = "You killed the dwarf!"
 			else:
 				msg = "You hit the {}".format(thing.class_name)
+		elif type(thing) == Hobbit:
+			thing.health -= 1
+			if thing.health <= 0:
+				msg = "You killed the hobbit!"
+			else:
+				msg = "You hit the {}".format(thing.class_name)
 		else:
 			msg = "There is no {} here.".format(noun)
 		return msg
@@ -50,6 +56,8 @@ from class_orc import Orc
 from class_human import Human
 
 from class_dwarf import Dwarf
+
+from class_hobbit import Hobbit
 
 
 

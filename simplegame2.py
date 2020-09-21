@@ -34,12 +34,15 @@ from class_human import Human
 
 from class_dwarf import Dwarf
 
+from class_hobbit import Hobbit
+
 
 goblin = Goblin("Gobbly")
 elf = Elf("Elfy")
 orc = Orc("Orcy")
 human = Human("Steve")
 dwarf = Dwarf("Dwarfy")
+hobbit = Hobbit("Hobbs")
 
 
 verb_dict = {
