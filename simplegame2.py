@@ -109,151 +109,26 @@ def heal(noun):
 			msg = "There is no {} here.".format(noun)
 		return msg
 		
-class GameObject:
-	class_name = ""
-	desc = ""
-	objects = {}
+from class_gameobject import GameObject
 
-	def __init__(self, name):
-		self.name = name
-		GameObject.objects[self.class_name] = self
+from class_goblin import Goblin
 
-	def get_desc(self):
-		return self.class_name + "\n" + self.desc
+from class_elf import Elf	
 
-class Goblin(GameObject):
-	def __init__(self, name):
-		self.class_name = "goblin"
-		self.health = 3
-		self._desc = "A foul creature"
-		super().__init__(name)
+from class_orc import Orc
 
-	@property
-	def desc(self):
-		if self.health >=3:
-			return self._desc
-		elif self.health == 2:
-			health_line = "It has a wound on its knee."
-		elif self.health == 1:
-			health_line = "Its left arm has been cut off!"
-		elif self.health <= 0:
-			health_line = "It is dead"
-		return self._desc + "\n" + health_line
+from class_human import Human
 
-	@desc.setter
-	def desc(self, value):
-		self._desc = value
+from class_dwarf import Dwarf
 
 
-class Elf(GameObject):
-	def __init__(self, name):
-		self.class_name = "elf"
-		self.health = 5
-		self._desc = "A sensitive soul"
-		super().__init__(name)
 
-	@property
-	def desc(self):
-		if self.health >=4:
-			return self._desc
-		elif self.health == 3:
-			health_line = "It has a wound on its knee."
-		elif self.health == 2:
-			health_line = "Its ear has been severed!"
-		elif self.health == 1:
-			health_line = "Its left arm has been cut off!"
-		elif self.health <= 0:
-			health_line = "It is dead"
-		return self._desc + "\n" + health_line
-
-	@desc.setter
-	def desc(self, value):
-		self._desc = value
-
-class Orc(GameObject):
-	def __init__(self, name):
-		self.class_name = "orc"
-		self.health = 8
-		self._desc = "A mighty beast"
-		super().__init__(name)
-
-	@property
-	def desc(self):
-		if self.health >= 8:
-			return self._desc
-		elif self.health == 7:
-			health_line = "It has barely been scratched."
-		elif self.health == 6:
-			health_line = "It is, but a flesh wound"
-		elif self.health == 5:
-			health_line = "It felt that one!"
-		elif self.health == 4:
-			health_line = "It has a wound on its knee."
-		elif self.health == 3:
-			health_line = "Its flank has been slashed open!"
-		elif self.health == 2:
-			health_line = "Its left arm has been cut off!"
-		elif self.health == 1:
-			health_line = "Its right leg has been cut off!"
-		elif self.health <= 0:
-			health_line = "It is dead"
-		return self._desc + "\n" + health_line
-
-	@desc.setter
-	def desc(self, value):
-		self._desc = value
-
-class Human(GameObject):
-	def __init__(self, name):
-		self.class_name = "human"
-		self.health = 4
-		self._desc = "A priviliged ego"
-		super().__init__(name)
-
-	@property
-	def desc(self):
-		if self.health >=3:
-			return self._desc
-		elif self.health == 2:
-			health_line = "It has a gash on its arm."
-		elif self.health == 1:
-			health_line = "Its left leg has been cut off!"
-		elif self.health <= 0:
-			health_line = "It is dead"
-		return self._desc + "\n" + health_line
-
-	@desc.setter
-	def desc(self, value):
-		self._desc = value
-
-class Dwarf(GameObject):
-	def __init__(self, name):
-		self.class_name = "dwarf"
-		self.health = 4
-		self._desc = "A stubborn opponent"
-		super().__init__(name)
-
-	@property
-	def desc(self):
-		if self.health >=3:
-			return self._desc
-		elif self.health == 2:
-			health_line = "It has lost its foot."
-		elif self.health == 1:
-			health_line = "Its lost a lot of blood!"
-		elif self.health <= 0:
-			health_line = "It is dead"
-		return self._desc + "\n" + health_line
-
-	@desc.setter
-	def desc(self, value):
-		self._desc = value
 
 goblin = Goblin("Gobbly")
 elf = Elf("Elfy")
 orc = Orc("Orcy")
 human = Human("Steve")
-dawrf = Dwarf("Dwarfy")
+dwarf = Dwarf("Dwarfy")
 
 
 verb_dict = {
