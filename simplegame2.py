@@ -14,8 +14,7 @@ def get_input():
 	else:
 		print(verb("nothing"))
 
-def say(noun):
-	return 'You said "{}"'.format(noun)
+from func_say import say
 
 from func_examine import examine
 
