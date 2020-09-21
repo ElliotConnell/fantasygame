@@ -17,50 +17,9 @@ def get_input():
 def say(noun):
 	return 'You said "{}"'.format(noun)
 
-def examine(noun):
-	if noun in GameObject.objects:
-		return GameObject.objects[noun].get_desc()
-	else:
-		return "There is no {} here.".format(noun)
+from func_examine import examine
 
-def hit(noun):
-	if noun in GameObject.objects:
-		thing = GameObject.objects[noun]
-		if type(thing) == Goblin:
-			thing.health -= 1
-			if thing.health <= 0:
-				msg = "You killed the goblin!"
-			else:
-				msg = "You hit the {}".format(thing.class_name)
-		elif type(thing) == Elf:
-			thing.health -= 1
-			if thing.health <= 0:
-				msg = "You killed the elf!"
-			else:
-				msg = "You hit the {}".format(thing.class_name)
-		elif type(thing) == Orc:
-			thing.health -= 1
-			if thing.health == 4:
-				msg = "That's it, you've got him!"
-			elif thing.health <= 0:
-				msg = "You killed the orc!"
-			else:
-				msg = "You hit the {}".format(thing.class_name)
-		elif type(thing) == Human:
-			thing.health -= 1
-			if thing.health <= 0:
-				msg = "You killed the human!"
-			else:
-				msg = "You hit the {}".format(thing.class_name)
-		elif type(thing) == Dwarf:
-			thing.health -= 1
-			if thing.health <= 0:
-				msg = "You killed the dwarf!"
-			else:
-				msg = "You hit the {}".format(thing.class_name)
-		else:
-			msg = "There is no {} here.".format(noun)
-		return msg
+from func_hit import hit
 
 def heal(noun):
 	if noun in GameObject.objects:
@@ -75,7 +34,7 @@ def heal(noun):
 				msg = "You healed the {}".format(thing.class_name)
 		elif type(thing) == Elf:
 			thing.health += 1
-			if thing.health >= 4:
+			if thing.health >= 5:
 				msg = "Elf is at full health"
 			elif thing.health == 1:
 				msg = "Elf has been revived!"
@@ -120,7 +79,6 @@ from class_orc import Orc
 from class_human import Human
 
 from class_dwarf import Dwarf
-
 
 
 
